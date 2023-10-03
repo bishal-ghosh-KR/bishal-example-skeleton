@@ -1,2 +1,2 @@
 # bishal-example-skeleton
-A basic skeleton of an App
+A basic skeleton of a Spring boot Application
