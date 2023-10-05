@@ -1,0 +1,3 @@
+rootProject.name = 'bishal-example-skeleton'
+include 'loader'
+

@@ -1,0 +1,43 @@
+subprojects {
+    apply plugin: 'java'
+    group = 'com.kroger'
+    version = '0.1.0'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    repositories {
+        maven {
+            url 'https://artifactory-edge.kroger.com/artifactory/libs-release'
+            credentials {
+                username = System.getenv("ARTIFACTORY_USERNAME")
+                password = System.getenv("ARTIFACTORY_EDGE_PASSWORD")
+            }
+        }
+        maven {
+            url 'https://artifactory-edge.kroger.com/artifactory/libs-snapshot'
+            credentials {
+                username = System.getenv("ARTIFACTORY_USERNAME")
+                password = System.getenv("ARTIFACTORY_EDGE_PASSWORD")
+            }
+        }
+        maven {
+            url 'https://artifactory-edge.kroger.com/artifactory/remote-repos'
+            credentials {
+                username = System.getenv("ARTIFACTORY_USERNAME")
+                password = System.getenv("ARTIFACTORY_EDGE_PASSWORD")
+            }
+        }
+        mavenCentral()
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+wrapper {
+    distributionUrl = "https://services.gradle.org/distributions/gradle-7.2-all.zip"
+}
