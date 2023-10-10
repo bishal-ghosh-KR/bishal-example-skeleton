@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: bishal-example-skeleton
+  r2dbc:
+    url: 'r2dbc:tc:postgresql:///test_skeleton?TC_IMAGE_TAG=9.6.8'
 
 misc:
   message: "Welcome to my App."
